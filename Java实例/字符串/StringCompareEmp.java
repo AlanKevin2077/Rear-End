@@ -1,3 +1,4 @@
+//字符串比较
 public class StringCompareEmp{
    public static void main(String args[]){
       String str = "Hello World";
