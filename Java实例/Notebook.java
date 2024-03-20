@@ -11,7 +11,9 @@ extends    //继承，存在于子类的声明中，public a extends b
 
 super(name);//调用父类参数名为name的方法，父，子，super（三者参数要一致）
 
-this 
+this.name=name //this.name来指代传入的形参
+
+
 
 
 
