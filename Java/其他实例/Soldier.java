@@ -165,7 +165,7 @@ class AK47 implements Weapon {
 // 士兵类
 class Soldier {
     private String name;
-    private Weapon weapon;
+    private Weapon weapon;//接口好处，声明了一个名为 weapon 的成员变量，其类型为 Weapon，别的类使用接口
 
     public Soldier(String name) {
         this.name = name;
@@ -210,3 +210,10 @@ public class Main {
         soldier.attack();
     }
 }
+
+
+/*士兵1 正在前进...
+AK47 发射子弹！剩余子弹：29
+AK47 装载子弹！当前子弹数量：39
+AK47 发射子弹！剩余子弹：29
+*/

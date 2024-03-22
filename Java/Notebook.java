@@ -14,13 +14,29 @@ super(name);//调用父类参数名为name的方法，父，子，super（三者
 this.name=name //this.name来指代传入的形参
 
 
-import  //
+import java.util.Scanner;   //导入java.util包中的Scanner类
+
+
+Object //是所有Java类的父类,（除了基本数据类型定义的）
 
 
 
 
 
 
+
+
+
+
+               //方法
+
+equals
+
+
+
+
+
+访问变量–讲变量赋值，返回变量，修改变量
 
 
 
