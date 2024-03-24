@@ -19,7 +19,12 @@ import java.util.Scanner;   //导入java.util包中的Scanner类
 
 Object //是所有Java类的父类,（除了基本数据类型定义的）
 
+final   //修饰常量，在程序运行时是不能被修改的
+        final double PI = 3.1415927;
+        
+        
 
+        
 
 
 

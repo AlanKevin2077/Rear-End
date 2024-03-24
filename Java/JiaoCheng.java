@@ -1,4 +1,4 @@
-//基本语法
+             //基本语法
 大小写敏感
 
 如果类名由若干单词组成，那么每个单词的首字母应该大写，例如 MyFirstJavaClass 。
@@ -118,16 +118,15 @@ public class Main {
 Puppy myPuppy = new Puppy( "tommy" );
 
 
-非静态成员方法
-
+          非静态成员方法
+          
 可以访问和修改类的非静态成员变量。
 可以调用类中的其他非静态成员方法。
 *需要创建类的实例才能调用。
 
 
-静态成员方法
-
-
+        静态成员方法
+        
 只能访问和修改类的静态成员变量。
 可以调用类中的其他静态成员方法。
 *可以直接通过类名调用，无需创建类的实例。
@@ -135,6 +134,164 @@ public class Calculator {
   
 }
  Calculator.multiply(3, 4); 
+
+
+
+            源文件声明规则
+
+如果你有两个类ClassA和ClassB在同一个源文件中，你不能一个类放在package com.example下，另一个类放在package com.other下。它们都必须在同一个包下，或者没有包声明。      
+// 正确的做法，两个类都在同一个包下
+package com.example;
+
+public class ClassA {
+    // 类的内容
+}
+
+public class ClassB {
+    // 类的内容
+}
+
+// 或者没有包声明
+public class ClassC {
+    // 类的内容
+}
+
+
+
+
+非静态内部类是一个类中嵌套着另外一个类。 它有访问外部类成员的权限， 通常被称为内部类。
+由于内部类嵌套在外部类中，因此必须首先实例化外部类，然后创建内部类的对象来实现。
+
+class OuterClass {
+int x = 10;
+
+ class InnerClass {
+ int y = 5;
+}
+}
+
+public class MyMainClass {
+ public static void main(String[] args) {
+OuterClass myOuter = new OuterClass();
+ OuterClass.InnerClass myInner = myOuter.new InnerClass();
+System.out.println(myInner.y + myOuter.x);
+ }
+}
+
+
+静态内部类可以使用static关键字定义，静态内部类我们不需要创建外部类来访问，可以直接访问
+class OuterClass {
+int x = 10;
+
+static class InnerClass {
+int y = 5;
+  
+}
+}
+
+public class MyMainClass {
+public static void main(String[] args) {
+OuterClass.InnerClass myInner = new OuterClass.InnerClass();
+ System.out.println(myInner.y);
+}
+}
+
+
+
+
+    静态内部类访问外部类的静态成员和非静态成员
+
+public class OuterClass {
+    // 非静态成员变量
+    private int nonStaticVar = 10;
+    
+        // 静态成员变量
+    private static int staticVar = 20;
+
+
+    // 静态内部类
+    public static class StaticInnerClass {
+        public void accessMembers() {
+          
+          //通过外部类的实例来访问非静态成员变量
+            OuterClass outer = new OuterClass();
+            System.out.println(ou.nonStaticVar );
+            
+        //直接访问静态成员变量，这是允许的
+            System.out.println(staticVar);
+
+        }
+    }
+}
+
+
+
+如果你不希望内部类被外部类访问可以使用private修饰符
+
+
+
+
+
+            基本数据类型
+\r  回车
+
+
+局部变量在声明时需要初始化，否则会导致编译错误。
+public void exampleMethod() {
+    int localVar = 10; // 局部变量
+    // ...
+}
+
+
+
+实例变量（成员变量？）属于类的实例，每个类的实例都有自己的副本，如果不明确初始化，实例变量会被赋予默认值（数值类型为0，boolean类型为false，对象引用类型为null）
+public class ExampleClass {
+    int instanceVar; // 实例变量
+}
+
+
+静态变量或者类变量有static属于类而不是实例，所有该类的实例共享同一个类变量的值，类变量在类加载时被初始化，而且只初始化一次
+public class ExampleClass {
+    static int classVar; // 类变量
+}
+ 
+ 
+        
+通过引用传递，我们可以在方法内部改变对象的状态。
+public class Example {
+    private String value;
+
+    public Example(String value) {
+        this.value = value;
+    }
+
+    public void setValue(String value) {
+        this.value = value;
+    }
+
+    public String getValue() {
+        return value;
+    }
+
+    public static void main(String[] args) {
+        Example obj= new Example("Original Value");
+        System.out.println("Before method call: " + obj.getValue());
+
+        changeValue(obj);
+
+        System.out.println("After method call: " + obj.getValue());
+    }
+    
+//在这个例子里，当你调用 changeValue 方法并传递一个 Example 类型的对象时，你实际上是在传递一个引用给这个方法，这样方法内部就可以通过这个引用来修改对象的状态。
+    public static void changeValue(Example obj) {
+        obj.setValue("New Value");
+    }
+}
+
+            
+
+
+
 
 
 
