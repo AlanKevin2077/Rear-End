@@ -244,15 +244,26 @@ public void exampleMethod() {
 
 
 
-实例变量（成员变量？）属于类的实例，每个类的实例都有自己的副本，如果不明确初始化，实例变量会被赋予默认值（数值类型为0，boolean类型为false，对象引用类型为null）
+实例变量（成员变量）属于类的实例，每个类的实例都有自己的副本，如果不明确初始化，实例变量会被赋予默认值（数值类型为0，boolean类型为false，对象引用类型为null）
 public class ExampleClass {
     int instanceVar; // 实例变量
 }
 
 
-静态变量或者类变量有static属于类而不是实例，所有该类的实例共享同一个类变量的值，类变量在类加载时被初始化，而且只初始化一次
+静态变量或者类变量有static属于类。静态变量是与类相关的，因此可以通过类名来访问静态变量，也可以通过实例名来访问静态变量，静态变量是属于类的，它被所有该类的实例共享。
 public class ExampleClass {
-    static int classVar; // 类变量
+  public static int count; // 类变量
+}
+MyClass.count = 10; // 通过类名访问
+MyClass obj = new MyClass();
+obj.count = 20; // 通过实例名访问
+
+
+count1 要先于 count2初始化，否则编译时会报错。
+public class MyClass {
+public static int count1 = 0;
+public static int count2 = count1 + 1;
+// 其他成员变量和方法
 }
  
  
@@ -287,6 +298,73 @@ public class Example {
         obj.setValue("New Value");
     }
 }
+
+常量和静态变量的区别
+都是与类相关，常量不能改，静态变量可以更改
+
+
+静态变量的访问权限与实例变量不同，因为静态变量是与类相关的，不依赖于任何实例。
+
+
+静态变量通常用于以下场景：
+
+存储全局状态或配置信息
+计数器或统计信息
+缓存数据或共享资源
+工具类的常量或方法
+单例模式中的实例变量
+
+
+//staticVariable是一个静态变量，它不需要在构造器中重新定义。
+public class MyClass {
+    // 静态变量
+    public static int staticVariable = 10;
+
+    // 构造器
+    public MyClass() {
+        // 这里不需要重新定义静态变量
+    }
+}
+
+
+
+类名用大写字母开头，其他的小写开头
+
+
+            访问修饰符
+类和接口不能声明为 private
+
+//声明为私有访问类型的变量只能通过类中公共的 getter 方法被外部类访问。
+public class Logger {
+   private String format;
+   public String getFormat() {
+      return this.format;
+   }
+   public void setFormat(String format) {
+      this.format = format;//this.format＝成员变量format
+   }
+}
+
+
+
+Java 程序的 main() 方法必须设置成公有的，否则，Java 解释器将不能运行该类。
+
+
+package derived;
+import base.BaseClass;//导入base包的类
+public class DerivedClass extends BaseClass {
+    public void accessProtectedMethod() {
+        protectedMethod(); // 子类可以访问基类的受保护方法
+    }
+}
+
+
+protected 可以修饰数据成员，构造方法，方法成员，不能修饰类（内部类除外）。接口及接口的成员变量和成员方法不能声明为 protected
+
+
+
+
+
 
             
 
