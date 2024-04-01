@@ -1,25 +1,34 @@
                //关键字
                
-@Override  //覆写，接入接口的类或继承父类的子类，对他们的上一级进行修改
+@Override  
+//覆写，接入接口的类或继承父类的子类，对他们的上一级进行修改
 
-interface  //接口，只定义方法，方法里没有算法
-           //例：武器有开火和换弹2种方法
+interface  
+//接口，只定义方法，方法里没有算法
+//例：武器有开火和换弹2种方法
            
-implements //接入接口，写在具体的实例（AK47）的声明中，然后通过覆写修改方法
+implements 
+//接入接口，写在具体的实例（AK47）的声明中，然后通过覆写修改方法
 
-extends    //继承，存在于子类的声明中，public a extends b
+extends    
+//继承，存在于子类的声明中，public a extends b
 
-super(name);//调用父类参数名为name的方法，父，子，super（三者参数要一致）
+super(name);
+//调用父类参数名为name的方法，父，子，super（三者参数要一致）
 
-this.name=name //this.name来指代传入的形参
+this.name=name 
+//this.name来指代传入的形参
 
 
-import java.util.Scanner;   //导入java.util包中的Scanner类
+import java.util.Scanner;   
+//导入java.util包中的Scanner类
 
 
-Object //是所有Java类的父类,（除了基本数据类型定义的）
+Object 
+//是所有Java类的父类,（除了基本数据类型定义的）可以直接这样写Object obj = 基本数据类型或者其他类的方法
 
-final   //修饰常量，在程序运行时是不能被修改的
+final   
+//修饰常量，在程序运行时是不能被修改的
         final double PI = 3.1415927;
         
         
@@ -39,6 +48,33 @@ equals
 
 
 
+.compareTo()
+//比较这两个字符串的字典顺序 /*调用对象（this）小于参数对象，返回负整数
+                  大于返回正整数
+                  等于返回0*/
+                  
+//用法：a.compareTo(b)   a ， b一般均为字符串类型变量 ，b位置还可以是获取对象值的方法 objStr.toString()
+  
+  
+                  
+.lastIndexOf("")        //一个字符串在另一个字符串中最后出现的位置0123456这样开始数
+  //用法：int a = b.lastIndexOf("Runoob");  a保存返回值，b为字符串类型变量
+
+
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+-1是一个特殊的返回值，用来指示搜索失败或子字符串不存在于字符串中。
 
 
 访问变量–讲变量赋值，返回变量，修改变量
