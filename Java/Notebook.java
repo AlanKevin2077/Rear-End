@@ -42,11 +42,13 @@ final
 
 
 
-               //方法
+                                        //方法
 
 equals
 
 
+                                  //字符串的常用方法
+ //字符串方法是静态方法，而不是某个实例的方法。这意味着您应该直接调用它们，而不是创建实例调用它们。
 
 .compareTo()
 //比较这两个字符串的字典顺序 /*调用对象（this）小于参数对象，返回负整数
@@ -61,16 +63,17 @@ equals
   //用法：int a = b.lastIndexOf("Runoob");  a保存返回值，b为字符串类型变量
 
 
+.substring(7, 12); // 从索引7开始到索引11结束                  
+ //用法：删除一个字符 return s.substring(0, pos) + s.substring(pos + 1);  返回字符区间索引为[0,pos)U[pos+1,字符串末尾]
+ // 删除一个字符后所有字符 return s.substring(0, pos)   返回字符区间索引为[0,pos)           
                   
                   
                   
                   
                   
                   
-                  
-                  
-                  
-                  
+ 在表达式MyClass obj = new MyClass();中：                 
+ MyClass 是对象的类型，而 obj 是引用这个新创建对象的变量。new MyClass()是创建对象的动作。                 
                   
                   
                   
