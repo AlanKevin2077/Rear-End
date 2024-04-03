@@ -47,7 +47,8 @@ final
 equals
 
 
-                                  //字符串的常用方法
+          //字符串的常用方法
+          
  //字符串方法是静态方法，而不是某个实例的方法。这意味着您应该直接调用它们，而不是创建实例调用它们。
 
 .compareTo()
@@ -67,10 +68,28 @@ equals
  //用法：删除一个字符 return s.substring(0, pos) + s.substring(pos + 1);  返回字符区间索引为[0,pos)U[pos+1,字符串末尾]
  // 删除一个字符后所有字符 return s.substring(0, pos)   返回字符区间索引为[0,pos)           
                   
+           //数组方法
+//方法导入           
+import java.util.Arrays;
+//用Arrays类的sort方法对自定义数组array进行升序排序。
+Arrays.sort(array);
+
+
+int index Arrays.binarySearch(array, 2);
+        System.out.println("元素 2  在第 " + index + " 个位置");
+
+
+           
+           
+           
+           
+           
                   
                   
-                  
-                  
+  使用import导入类时，必须创建一个类对象才能使用这个类的方法
+  
+  
+  
                   
  在表达式MyClass obj = new MyClass();中：                 
  MyClass 是对象的类型，而 obj 是引用这个新创建对象的变量。new MyClass()是创建对象的动作。                 
