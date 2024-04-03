@@ -362,6 +362,51 @@ public class DerivedClass extends BaseClass {
 protected 可以修饰数据成员，构造方法，方法成员，不能修饰类（内部类除外）。接口及接口的成员变量和成员方法不能声明为 protected
 
 
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+              Java数组
+              
+              
+
+array[3]  array.length为3  实际[0][1][2]没有三   
+
+
+        使用new操作符来创建数组
+//方法一
+int size=10;
+//数组变量的声明和创建数组
+String [] array1=new String[size];
+myList[0] = 5.6;
+myList[1] = 4.5;
+myList[2] = 3.3;
+
+//方法二
+String []array1 ={"jzjj"，"hshh"};
+
+//创建了一个二维数组s，它有两行，但是每行的长度是未指定的（没有列行的长度不确定）
+String[][] s = new String[2][];
+//这行代码相当于创建列为第一行分配了两个字符串空间
+s[0] = new String[2];
+s[1] = new String[3];
+s[0][0] = new String("Good");
+s[0][1] = new String("Luck");
+s[1][0] = new String("to");
+s[1][1] = new String("you");
+s[1][2] = new String("!");
+       
+       
+       
+       
+       
+       
 
 
 

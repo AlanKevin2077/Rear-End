@@ -66,25 +66,32 @@ equals
 
 .substring(7, 12); // 从索引7开始到索引11结束                  
  //用法：删除一个字符 return s.substring(0, pos) + s.substring(pos + 1);  返回字符区间索引为[0,pos)U[pos+1,字符串末尾]
- // 删除一个字符后所有字符 return s.substring(0, pos)   返回字符区间索引为[0,pos)           
+ // 删除一个字符后所有字符 return s.substring(0, pos)   返回字符区间索引为[0,pos)  
+ 
+ 
+ 
+ 
                   
            //数组方法
-//方法导入           
+           
+           
+java.util.Arrays类能方便地操作数组，它提供的所有方法都是静态的 
+
+           导入方法并使用           
 import java.util.Arrays;
 //用Arrays类的sort方法对自定义数组array进行升序排序。
 Arrays.sort(array);
-
-
 int index Arrays.binarySearch(array, 2);
         System.out.println("元素 2  在第 " + index + " 个位置");
 
-
+数组变量.length
+//获取数组长度，a[3] 长度为3
            
            
            
            
            
-                  
+  值的来源–变量或实例变量.方法                
                   
   使用import导入类时，必须创建一个类对象才能使用这个类的方法
   
