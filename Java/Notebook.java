@@ -71,6 +71,7 @@ equals
  
  
  
+ 
                   
            //数组方法
            
@@ -91,7 +92,7 @@ int index Arrays.binarySearch(array, 2);
            
            
            
-  值的来源–变量或实例变量.方法                
+  值的来源–变量 变量.方法  对象.方法             
                   
   使用import导入类时，必须创建一个类对象才能使用这个类的方法
   
@@ -158,7 +159,7 @@ public class Main {
 
 
                Object类
-//obj 变量是一个Object 类型的引用，它指向一个   String   对象。
+//obj变量是一个Object类型的引用，它指向一个 String 对象。
 Object obj = new String("Hello, World!");
 
 //向下转型使用特定类的方法

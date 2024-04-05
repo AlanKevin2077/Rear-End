@@ -125,7 +125,7 @@ Puppy myPuppy = new Puppy( "tommy" );
 *需要创建类的实例才能调用。
 
 
-        静态成员方法
+            静态成员方法
         
 只能访问和修改类的静态成员变量。
 可以调用类中的其他静态成员方法。
@@ -331,7 +331,13 @@ public class MyClass {
 类名用大写字母开头，其他的小写开头
 
 
+
+
+
             访问修饰符
+            
+            private
+            
 类和接口不能声明为 private
 
 //声明为私有访问类型的变量只能通过类中公共的 getter 方法被外部类访问。
@@ -345,10 +351,13 @@ public class Logger {
    }
 }
 
-
-
 Java 程序的 main() 方法必须设置成公有的，否则，Java 解释器将不能运行该类。
 
+
+
+
+
+             protected
 
 package derived;
 import base.BaseClass;//导入base包的类
@@ -361,17 +370,188 @@ public class DerivedClass extends BaseClass {
 
 protected 可以修饰数据成员，构造方法，方法成员，不能修饰类（内部类除外）。接口及接口的成员变量和成员方法不能声明为 protected
 
+             访问控制和继承
+请注意以下方法继承的规则：
+父类中声明为 public 的方法在子类中也必须为 public。
+
+父类中声明为 protected 的方法在子类中要么声明为 protected，要么声明为 public，不能声明为 private。
+
+父类中声明为 private 的方法，不能够被子类继承。
+       
+   
+   
+       
+             非访问修饰符
+               static
+静态变量也被称为类变量。局部变量不能被声明为
+static 变量
+
+静态方法无法通过非静态类变量访问
+
+对静态变量和静态方法的访问可以直接使用 类名.静态变量 和 类名.静态方法 的方式访问。
+
+
+
+               final
+被final修饰的变量一旦赋值后，不能被重新赋值
+
+public class Test{
+  final int value = 10;
+  // 下面是声明常量的实例
+  public static final int BOXWIDTH = 6;
+  static final String TITLE = "Manager";
+ 
+  public void changeValue(){
+     value = 12; //将输出一个错误
+  }
+}
+
+父类中的 final方法可以被子类继承，但是不能被子类重写。
+
+final 类不能被继承，没有类能够继承final类的任何特性。
 
        
        
+             abstract
        
-       
-       
-       
-       
-       
-       
-       
+抽象类不能用来实例化对象，声明抽象类的唯一目的是为了将来对该类进行扩充。
+
+有抽象类方法该类必须为抽象类
+
+抽象方法是一种没有任何实现的方法，该方法的具体实现由子类提供
+
+任何继承抽象类的子类必须实现父类的所有抽象方法，除非该子类也是抽象类。
+
+public abstract class SuperClass{
+    abstract void m(); //抽象方法
+}
+ 
+class SubClass extends SuperClass{
+     //实现抽象方法
+      void m(){
+          .........
+      }
+}
+
+
+
+
+             Java运算符
+             
+             
+        条件运算符也被称为三元运算符             
+// 如果 a 等于 1 成立，则设置 b 为 20，否则为 30
+b = (a == 1) ? 20 : 30;
+
+
+            运算符优先级
+同级从左到右，条件和赋值的从右往左
+
+
+            Java 循环结构 
+            
+             while 循环
+while( 布尔表达式 ) {
+  //循环内容
+}  
+
+
+public class Test {
+   public static void main(String[] args) {
+      int x = 10;
+      while( x < 20 ) {
+         System.out.print("value of x : " + x );
+         x++;
+         System.out.print("\n");
+      }
+   }
+}
+
+
+            do…while 循环
+
+do {
+       //代码语句
+}while(布尔表达式);
+
+
+              for循环
+for(初始化; 布尔表达式; 更新) {
+    //代码语句
+}
+
+             增强 for 循环（数组专用）
+for(声明语句 : 表达式)
+{
+   //代码句子
+}
+
+int [] numbers = {10, 20, 30, 40, 50};
+ 
+      for(int x : numbers ){
+         System.out.print( x );
+         System.out.print(",");
+      }
+      
+      
+             continue
+             
+for循环从 1 迭代到10。在每次迭代中，程序检查当前的数字i 是否为3。如果是3执行continu语句，这将导致循环立即跳到下一个迭代4并且忽略剩余循环体内的代码     
+    
+    
+    
+       Java Number & Math 类
+所有的包装类（Integer、Long、Byte、Double、Float、Short）都是抽象类 Number 的子类。
+
+// 原始字符 'a' 装箱到 Character 对象 ch 中
+Character ch = 'a';
+// 原始字符 'x' 用 test 方法装箱
+// 返回拆箱的值到 'c'
+char c = test('x');
+
+
+
+Math 的方法都被定义为 static 形式，通过 Math 类可以在主函数中直接调用
+
+ Math.ceil(num);  
+
+
+
+            Java String 类
+            
+
+
+
+
+             Java 条件语句
+if(布尔表达式 1){
+   //如果布尔表达式 1的值为true执行代码
+}else if(布尔表达式 2){
+   //如果布尔表达式 2的值为true执行代码
+}else if(布尔表达式 3){
+   //如果布尔表达式 3的值为true执行代码
+}else {
+   //执行false
+}
+
+
+if嵌套，多级选择
+
+
+           Java switch case 语句
+           
+switch(expression){
+    case value :
+       //语句
+       break; //可选
+    case value :
+       //语句
+       break; //可选
+    //你可以有任意数量的case语句
+    default : //显示不属于以上情况
+       //语句
+}           
+      
               Java数组
               
               
