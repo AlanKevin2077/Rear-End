@@ -1,4 +1,30 @@
              //基本语法
+ //一个源文件可以有多个类但只有一个公共类          
+ Public class Text
+ 
+ 
+ 
+ //构造器，可有多个构造器，只是圆括号里的参数不同
+ Public Text(int a){
+   
+ }
+ 
+ Public Text(String name,int age)
+ {
+   
+ }
+ 
+ //函数
+ void text(){
+   
+ }
+  
+  
+  
+             
+             
+             
+             
 大小写敏感
 
 如果类名由若干单词组成，那么每个单词的首字母应该大写，例如 MyFirstJavaClass 。
@@ -518,10 +544,55 @@ Math 的方法都被定义为 static 形式，通过 Math 类可以在主函数�
 
 
             Java String 类
-            
+//构造器创建字符串            
+String str2=new String("Runoob");    
+
+String 创建的字符串存储在公共池中，而 new 创建的字符串对象在堆上
+
+String 类是不可改变的，所以你一旦创建了 String 对象，那它的值就无法改变了
 
 
+连接字符串
+第一种：string1.concat(string2);
+第二种：System.out.println("1、" + string1 + "www.runoob.com");  
 
+
+  
+  
+  
+          Java StringBuffer 和 StringBuilder 类
+          
+当对字符串进行修改的时候，需要使用 StringBuffer 和 StringBuilder 类。
+
+StringBuilder （安全点）相较于 StringBuffer 有速度优势，所以多数情况下建议使用 StringBuilder 类
+
+//速度快
+public class RunoobTest{
+    public static void main(String args[]){
+      //创建10个格子
+        StringBuilder sb = new StringBuilder(10);
+        sb.append("Runoob..");
+        System.out.println(sb);  
+        sb.append("!");
+        System.out.println(sb); 
+        sb.insert(8, "Java");
+        System.out.println(sb); 
+        //[5，8）
+        sb.delete(5,8);
+        System.out.println(sb);  
+    }
+}
+
+//安全
+public class Test{
+  public static void main(String args[]){
+    StringBuffer sBuffer = new StringBuffer("菜鸟教程官网：");
+    sBuffer.append("www");
+    sBuffer.append(".runoob");
+    sBuffer.append(".com");
+    System.out.println(sBuffer);  
+  }
+}
 
              Java 条件语句
 if(布尔表达式 1){
@@ -581,10 +652,117 @@ s[0][1] = new String("Luck");
 s[1][0] = new String("to");
 s[1][1] = new String("you");
 s[1][2] = new String("!");
+ 
+ 
+       
+Java中数组的元素值可以通过方法参数的引用传递进行修改，但数组对象本身（如数组的大小或引用）不能在方法内部被修改。      
+ //原数组不能被修改例子
+ static void doIt( int[] z ) 
+    {
+        z = null ;
+    }
+    
+    //可以被修改例子
+    static void doIt( int[] z )
+    {
+        int temp = z[z.length-1];
+        z[z.length-1] = z[0];
+        z[0] = temp;
+    }
+    
+    创建了一个新的数组对象，并将这个新数组的引用赋值给了方法内部的局部变量 array，而不是原始数组对象
+    
+    
+    
+    
+    void blur(char[] z, String st)
+{
+    if(z.length < st.length()) 
+    //不满足条件的直接返回
+    return;
+    //i＝0开始，可当索引用
+    //假如为hello，执行5次即＜5就得存完
+    for (int i = 0; i < st.length(); i++) {
+        z[i] = st.charAt(i);
+    }
+}
        
        
        
+   //数组中相同的值    
+  int[] numbers = {5, 5, 5, 5}；    
+  
+  //只有8个格子，没有第九个格子
+  int[] arr = new int[9];
+System.out.println(arr[9]);
+
+
+
+
+
+            Java 日期时间
+            
+java.util 包提供了Date类来封装当前的日期和时间
+
+//导入包
+//SimpleDateFormat类 格式化日期
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+public class DateDemo {
+    public static void main(String args[]) {
+        // 初始化 Date 对象
+        Date date = new Date();
+        
+        // 使用 SimpleDateFormat 格式化日期时间，以中国时区（+8）显示
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        sdf.setTimeZone(java.util.TimeZone.getTimeZone("Asia/Shanghai"));
+        
+        // 使用 formattedString() 显示日期时间
+        //方法会将日期对象转换为一个格式化的日期时间字符串。
+        //日期对象和日期初始化对象连结
+        System.out.println(sdf.format(date));
+    }
+}
+
+
+//结果与上面一样
+import java.util.Date;
+public class DateFormatExample {
+public static void main(String[] args) {
+ Date date = new Date();
+ System.out.printf("%tY-%tm-%td %tH:%tM:%tS %tZ", date, date, date, date, date, date);
+}
+}
+
+
+//日期和时间的格式化编码详细见菜鸟教程
+MM 是月份，mm 是分；HH 是 24 小时制，而 hh 是 12 小时制。
+
+
+
+
+       Java 格式化输出 printf 用法
        
+%c : 输出字符
+%d : 输出十进制整数
+%f : 输出浮点数
+%s : 输出字符串       
+%m.n : 控制宽度和精度，m表示最小宽度，n表示小数点后的位数
+%n表示换行
+
+//%.nf : 控制小数点后的位数，n为数字
+System.out.printf("%.2f", 3.1415926); 
+// 输出 "3.14"
+
+//%b : 输出布尔值
+System.out.printf("%b", true); // 输出 "true"
+
+
+
+
+
+  
        
        
 
