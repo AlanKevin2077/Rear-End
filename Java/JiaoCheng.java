@@ -562,9 +562,9 @@ String 类是不可改变的，所以你一旦创建了 String 对象，那它�
   
           Java StringBuffer 和 StringBuilder 类
           
-当对字符串进行修改的时候，需要使用 StringBuffer 和 StringBuilder 类。
+当对大量字符串进行拼接时候，需要使用 StringBuffer 和 StringBuilder 类
 
-StringBuilder （安全点）相较于 StringBuffer 有速度优势，所以多数情况下建议使用 StringBuilder 类
+StringBuilder 相较于 StringBuffer 有速度优势，所以多数情况下建议使用 StringBuilder 类
 
 //速度快
 public class RunoobTest{
@@ -736,6 +736,14 @@ public static void main(String[] args) {
 }
 
 
+//获取系统时间
+import java.time.LocalDataTime;
+public static void main (String[] args) {
+  LocalDataTime ldt = LocalDataTime.now();
+  System.out.println(ldt);
+}
+
+
 //日期和时间的格式化编码详细见菜鸟教程
 MM 是月份，mm 是分；HH 是 24 小时制，而 hh 是 12 小时制。
 
@@ -758,6 +766,25 @@ System.out.printf("%.2f", 3.1415926);
 //%b : 输出布尔值
 System.out.printf("%b", true); // 输出 "true"
 
+
+
+
+              Java正则表达式
+//匹配用
+import java.util.regex.*;
+ 
+class RegexExample1{
+   public static void main(String[] args){
+      String content = "I am noob " +
+        "from runoob.com.";
+        
+//*runoob.* 用于查找字符串中是否包含runoob 子串
+      String pattern = ".*runoob.*";
+ 
+      boolean isMatch = Pattern.matches(pattern, content);
+      System.out.println("字符串中是否包含了 'runoob' 子字符串? " + isMatch);
+   }
+}
 
 
 
