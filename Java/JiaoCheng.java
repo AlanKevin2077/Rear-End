@@ -697,6 +697,95 @@ Java中数组的元素值可以通过方法参数的引用传递进行修改，�
 System.out.println(arr[9]);
 
 
+//增
+在Java中，数组的大小是固定的，所以你不能直接在数组中插入元素。但是，你可以创建一个新的更大的数组，并将原数组的元素复制到新数组中，然后在新数组的指定位置插入新元素。
+public static int insertElement(int[] originalArray, int index, int element) {
+    int[] newArray = new int[originalArray.length + 1];
+    for (int i = 0; i < index; i++) {
+        newArray[i] = originalArray[i];
+    }
+    newArray[index] = element;
+    for (int i = index; i < originalArray.length; i++) {
+        newArray[i + 1] = originalArray[i];
+    }
+    return newArray;
+}
+
+//传统的增删改查在实际应用中，频繁地创建新数组来模拟增删操作可能会导致性能问题，特别是在处理大型数组时。
+如果你需要频繁地进行增删操作，建议使用  ArrayList  或  LinkedList  等动态数组结构，它们提供了更灵活的增删操作。
+
+//删
+同样，你不能直接从数组中删除元素，但你可以创建一个新的数组，将除了要删除的元素之外的所有元素复制到新数组中。
+public static int[] insertElement(int[] originalArray, int index, int element) {
+    int[] newArray = new int[originalArray.length + 1];
+    for (int i = 0; i < index; i++) {
+        newArray[i] = originalArray[i];
+    }
+    newArray[index] = element;
+    for (int i = index; i < originalArray.length; i++) {
+        newArray[i + 1] = originalArray[i];
+    }
+    return newArray;
+}
+
+
+//改
+修改数组中的元素相对简单，你只需要访问数组的指定索引并赋新值。
+public static void updateElement(int[] array, int index, int newValue) {
+    if (index >= 0 && index < array.length ) {
+        array[index] = newValue;
+    }
+}
+
+//查
+public static int searchElement(int[] array, int element) {
+    for (int i = 0; i < array.length; i++) {
+        if (array[i] == element) {
+            return i;
+        }
+    }
+    return -1; // 如果没有找到，返回-1
+}
+
+
+
+ArrayList   是 Java 中的一个类，它实现了   List   接口，是基于数组实现的动态数组。  ArrayList   允许存储任意类型的对象，并且可以动态地增加或减少元素。
+import java.util.ArrayList;
+
+public class ArrayListExample {
+    public static void main(String[] args) {
+        // 创建一个 ArrayList
+        ArrayList<String> list = new ArrayList<>();
+
+        // 添加元素
+        list.add("Apple");
+        list.add("Banana");
+        list.add("Cherry");
+
+        // 插入元素
+        list.add(1, "Orange");
+
+        // 删除元素
+        list.remove("Banana");
+
+        // 修改元素
+        list.set(1, "Grape");
+
+        // 查找元素
+        int index = list.indexOf("Grape");
+        if (index != -1) {
+            System.out.println("Element found at index: " + index);
+        }
+
+        // 遍历 ArrayList
+        for (String fruit : list) {
+            System.out.println(fruit);
+        }
+    }
+}
+
+
+
 
 
 
@@ -786,6 +875,25 @@ class RegexExample1{
    }
 }
 
+
+
+
+           Java面向对象
+           
+           
+             Java 继承  
+解决代码臃肿，增强维护性   
+  
+                  
+公共父类方法：吃喝拉撒
+子类 ：猫类，狗类可继承公共方法    
+
+
+Java 不支持多继承，子类不能继承同时2个父类
+
+
+
+              
 
 
 
